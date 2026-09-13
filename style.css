@@ -45,7 +45,11 @@ a {
 }
 
 .kicker--light {
-    color: #a8a7a1;
+    font-family: var(--font-display);
+    color: var(--invert-ink);
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 500;
+    margin-bottom: 16px;
 }
 
 
@@ -134,8 +138,17 @@ nav {
 
     display: flex;
     align-items: center;
-
+    justify-content: space-between;
+    gap: 40px;
     padding: 120px 10% 80px;
+}
+
+.hero-img {
+    width: 490px;        
+    height: 320px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
 }
 
 .hero-text {
@@ -442,6 +455,23 @@ button:focus-visible {
     padding: 110px 10%;
     background: var(--invert-bg);
     color: var(--invert-ink);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.reflection-text {
+    flex: 1;
+}
+
+.reflection-img {
+    width: 490px;        
+    height: 320px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
 }
 
 .reflection-box {
@@ -456,6 +486,7 @@ button:focus-visible {
     font-size: clamp(19px, 2.4vw, 25px);
     line-height: 1.55;
     color: #a8a7a1;
+    text-align: justify;
 }
 
 
