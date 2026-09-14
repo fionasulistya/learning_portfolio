@@ -483,7 +483,7 @@ button:focus-visible {
     font-family: var(--font-display);
     font-style: italic;
     font-weight: 400;
-    font-size: clamp(19px, 2.4vw, 25px);
+    font-size: clamp(19px, 2.4vw, 14px);
     line-height: 1.55;
     color: #a8a7a1;
     text-align: justify;
