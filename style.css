@@ -144,7 +144,7 @@ nav {
 }
 
 .hero-img {
-    width: 490px;        
+    width: 490px;
     height: 320px;
     object-fit: cover;
     border-radius: 6px;
@@ -152,13 +152,13 @@ nav {
 }
 
 .hero-text {
-    max-width: 760px;
+    max-width: 620px;
 }
 
 .hero h1 {
     font-family: var(--font-display);
     font-weight: 500;
-    font-size: clamp(48px, 8vw, 96px);
+    font-size: clamp(48px, 7vw, 88px);
     line-height: 1.02;
 
     margin: 22px 0 28px;
@@ -199,6 +199,33 @@ nav {
 
 .button:hover {
     opacity: 0.8;
+}
+
+
+/* PERSONAL STICKY NOTE */
+
+.sticky-note-wrap {
+    display: flex;
+    justify-content: center;
+
+    padding: 0 10% 70px;
+}
+
+.sticky-note {
+    max-width: 420px;
+
+    padding: 22px 26px;
+
+    background: #f3ead0;
+    color: #4a4128;
+
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.5;
+
+    box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.08);
+    transform: rotate(-1.5deg);
 }
 
 
@@ -282,6 +309,9 @@ h2 span {
 }
 
 .project-card {
+    position: relative;
+    overflow: hidden;
+
     padding: 40px;
 
     background: var(--bg);
@@ -294,6 +324,25 @@ h2 span {
 
 .project-card:hover {
     background: var(--bg-alt);
+}
+
+/* Large faint watermark numeral — a light structural cue, not decoration for its own sake */
+
+.project-card::after {
+    content: attr(data-num);
+
+    position: absolute;
+    right: 18px;
+    bottom: -28px;
+
+    font-family: var(--font-display);
+    font-size: 150px;
+    font-weight: 600;
+    line-height: 1;
+
+    color: rgba(22, 22, 21, 0.045);
+
+    pointer-events: none;
 }
 
 .project-meta {
@@ -319,6 +368,8 @@ h2 span {
 
 .project-info {
     max-width: 460px;
+    position: relative;
+    z-index: 1;
 }
 
 .project-type {
@@ -330,16 +381,101 @@ h2 span {
 .project-info h3 {
     font-family: var(--font-display);
     font-weight: 500;
-    font-size: 30px;
-    line-height: 1.1;
+    font-size: 28px;
+    line-height: 1.15;
+
+    margin-bottom: 6px;
+}
+
+.project-subtitle {
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-style: italic;
 
     margin-bottom: 14px;
 }
 
-.project-info p {
+.project-info > p {
     line-height: 1.65;
     color: var(--ink-soft);
     font-size: 15px;
+}
+
+
+/* JIGSAW FRAMING CHIPS — original icons standing in for the three photos, */
+/* which live in the Canva embed itself rather than as copied stock images */
+
+.framing-chips {
+    display: flex;
+    gap: 22px;
+
+    margin: 18px 0 6px;
+}
+
+.framing-chip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+
+    color: var(--ink-soft);
+}
+
+.framing-chip svg {
+    width: 28px;
+    height: 28px;
+}
+
+.framing-chip span {
+    font-size: 11.5px;
+    font-weight: 500;
+}
+
+.framing-note {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    font-style: italic;
+}
+
+
+/* VIDEO PLACEHOLDER — swap for a real embed once the recording arrives */
+
+.video-placeholder {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-top: 20px;
+    padding: 14px 18px;
+
+    background: var(--bg-alt);
+    border: 1px dashed var(--line);
+    border-radius: 6px;
+}
+
+.video-play-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+
+    border-radius: 50%;
+    border: 1.5px solid var(--ink-soft);
+    color: var(--ink-soft);
+}
+
+.video-play-icon svg {
+    width: 14px;
+    height: 14px;
+}
+
+.video-caption {
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-style: italic;
 }
 
 
@@ -440,12 +576,115 @@ h2 span {
 }
 
 
+/* FEATURED CARD — a distinct two-column layout so it reads as the standout piece,     */
+/* not just a wider version of the same card                                           */
+
+.project-info--split {
+    max-width: none;
+
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+.project-quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(20px, 2vw, 25px);
+    line-height: 1.5;
+
+    padding: 26px 0 26px 26px;
+    border-left: 3px solid var(--point);
+
+    color: var(--ink);
+}
+
+
 /* FOCUS STATES */
 
 a:focus-visible,
 button:focus-visible {
     outline: 2px solid var(--ink);
     outline-offset: 3px;
+}
+
+
+/* LEARNING TIMELINE */
+
+.timeline-section {
+    padding: 110px 10%;
+    border-top: 1px solid var(--line);
+}
+
+.timeline {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+
+    margin-top: 20px;
+}
+
+.timeline::before {
+    content: "";
+
+    position: absolute;
+    top: 8px;
+    left: 0;
+    right: 0;
+
+    height: 1px;
+    background: var(--line);
+
+    z-index: 0;
+}
+
+.timeline-node {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+
+    background: var(--node-color);
+    box-shadow: 0 0 0 4px var(--bg);
+
+    margin-bottom: 18px;
+}
+
+.timeline-label {
+    display: inline-block;
+
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 16px;
+
+    text-decoration: none;
+    color: var(--ink);
+
+    margin-bottom: 8px;
+
+    border-bottom: 1px solid transparent;
+}
+
+.timeline-label:hover,
+.timeline-label:focus-visible {
+    border-bottom-color: var(--ink);
+}
+
+.timeline-note {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--ink-soft);
 }
 
 
@@ -467,7 +706,7 @@ button:focus-visible {
 }
 
 .reflection-img {
-    width: 490px;        
+    width: 490px;
     height: 320px;
     object-fit: cover;
     border-radius: 6px;
@@ -483,10 +722,80 @@ button:focus-visible {
     font-family: var(--font-display);
     font-style: italic;
     font-weight: 400;
-    font-size: clamp(19px, 2.4vw, 14px);
+    font-size: clamp(19px, 2.4vw, 25px);
     line-height: 1.55;
     color: #a8a7a1;
     text-align: justify;
+}
+
+
+/* BEFORE / DURING / AFTER PROGRESSION */
+
+.reflection-stages {
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+
+    max-width: 620px;
+    margin-top: 30px;
+}
+
+.reflection-stage {
+    padding-left: 22px;
+    border-left: 2px solid rgba(250, 249, 246, 0.16);
+}
+
+.stage-progress {
+    display: flex;
+    gap: 6px;
+
+    margin-bottom: 12px;
+}
+
+.stage-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+
+    background: rgba(250, 249, 246, 0.18);
+}
+
+.stage-dot.is-filled {
+    background: #d8a24a;
+}
+
+.stage-label {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #a8a7a1;
+
+    margin-bottom: 8px;
+}
+
+.stage-text {
+    font-family: var(--font-display);
+    font-size: 16px;
+    line-height: 1.65;
+    color: #c9c7c0;
+}
+
+/* The "after" stage carries the most weight — it's the payoff of the arc */
+
+.reflection-stage--after {
+    border-left-color: #d8a24a;
+}
+
+.reflection-stage--after .stage-label {
+    color: #d8a24a;
+}
+
+.stage-text--after {
+    font-size: clamp(19px, 2vw, 23px);
+    font-style: italic;
+    color: var(--invert-ink);
 }
 
 
@@ -735,6 +1044,16 @@ button:focus-visible {
         grid-template-columns: 1fr;
         gap: 24px;
     }
+
+    .project-info--split {
+        grid-template-columns: 1fr;
+    }
+
+    .project-quote {
+        border-left: none;
+        border-top: 3px solid var(--point);
+        padding: 20px 0 0;
+    }
 }
 
 @media (max-width: 700px) {
@@ -772,13 +1091,43 @@ button:focus-visible {
     }
 
     .hero {
+        flex-direction: column-reverse;
         padding: 110px 7% 60px;
+    }
+
+    .sticky-note-wrap {
+        padding: 0 7% 50px;
+    }
+
+    .sticky-note {
+        max-width: none;
+        width: 100%;
+        transform: rotate(-1deg);
+    }
+
+    .hero-img {
+        width: 100%;
+        height: 220px;
+    }
+
+    .hero-text {
+        max-width: none;
     }
 
     .about-section,
     .work-section,
     .reflection {
         padding: 80px 7%;
+    }
+
+    .reflection {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .reflection-img {
+        width: 100%;
+        height: 200px;
     }
 
     .projects {
@@ -790,7 +1139,41 @@ button:focus-visible {
     }
 
     .project-info h3 {
-        font-size: 26px;
+        font-size: 24px;
+    }
+
+    .timeline-section {
+        padding: 80px 7%;
+    }
+
+    .timeline {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .timeline::before {
+        top: 0;
+        bottom: 0;
+        left: 8px;
+        right: auto;
+
+        width: 1px;
+        height: auto;
+    }
+
+    .timeline-node {
+        flex-direction: row;
+        gap: 16px;
+    }
+
+    .timeline-dot {
+        flex-shrink: 0;
+        margin-bottom: 0;
+        margin-top: 4px;
+    }
+
+    .project-card::after {
+        font-size: 100px;
     }
 
     footer {
