@@ -438,42 +438,25 @@ h2 span {
 }
 
 
-/* VIDEO PLACEHOLDER — swap for a real embed once the recording arrives */
+/* TEACHER FEEDBACK IMAGE */
 
-.video-placeholder {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
+.feedback-image {
     margin-top: 20px;
-    padding: 14px 18px;
+}
 
-    background: var(--bg-alt);
-    border: 1px dashed var(--line);
+.feedback-image img {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+
     border-radius: 6px;
+    box-shadow: 0 0 0 1px var(--line);
 }
 
-.video-play-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.feedback-image figcaption {
+    margin-top: 8px;
 
-    width: 30px;
-    height: 30px;
-    flex-shrink: 0;
-
-    border-radius: 50%;
-    border: 1.5px solid var(--ink-soft);
-    color: var(--ink-soft);
-}
-
-.video-play-icon svg {
-    width: 14px;
-    height: 14px;
-}
-
-.video-caption {
-    font-size: 13px;
+    font-size: 12.5px;
     color: var(--ink-soft);
     font-style: italic;
 }
